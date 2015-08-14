@@ -1,0 +1,34 @@
+<div class="test-sugar">
+	<p class="test-title">Test Your Blood Sugar With Diabetes</p>
+	<%= form_for(@diabetic) do |f| %>
+	  <div class="form-group">
+	    <%= f.number_field :blood_level, :min => 1, :max => 9 %> mg/dl
+	    <label class="error"></label>
+	  </div>
+	    <%= f.hidden_field  :user_id, :value => current_user.id %>
+	     
+	  <div class="actions">
+	    <%= f.submit "Test Diabetic", :class => "btn btn-primary btn-sm"%>
+	  </div>
+	<% end %>
+</div>
+
+
+<script type="text/javascript">
+$(document).ready(function () {
+  $("#new_diabetic").validate({
+    rules:{
+      "diabetic[blood_level]":
+        {
+        required: true
+       }
+    },
+    messages: {
+      "diabetic[blood_level]":
+        {
+        required:"Please Enter value"
+        }
+    }
+  });
+});
+</script>

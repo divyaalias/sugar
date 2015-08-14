@@ -1,0 +1,18 @@
+
+.glucose-img {
+	height: 320 !important;
+}
+.top-menu {
+	float: right;
+}
+.test-sugar {
+    margin-top: 46px;
+}
+.test-title{
+	font-size: 30px;
+	color: rgb(51, 122, 183)
+}
+.error {
+    color: rgb(255, 0, 0);
+    font-weight: normal;
+}
