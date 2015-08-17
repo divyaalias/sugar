@@ -1,34 +1,36 @@
-<div class="test-sugar">
-	<%= form_tag month_to_date_diabetics_path, :method => "get" do  %>
-		<div class="form-group">
-			<label> From</label>
-				<%= text_field_tag :from, params[:from] %>
-			<label> To</label>
-				<%= text_field_tag :to, params[:to] %>
-		</div>
-		<div class="month-submit">
-			<%= submit_tag "Search", :class => "btn btn-primary btn-sm" %>
-		</div>
+<div class="caption-full">
+	<div class="test-sugar">
+		<%= form_tag month_to_date_diabetics_path, :method => "get" do  %>
+			<div class="form-group">
+				<label> From</label>
+					<%= text_field_tag :from, params[:from] %>
+				<label> To</label>
+					<%= text_field_tag :to, params[:to] %>
+			</div>
+			<div class="month-submit">
+				<%= submit_tag "Search", :class => "btn btn-primary btn-sm" %>
+			</div>
+		<% end %>
+	</div>
+	<% if params[:from] && params[:to]%>
+		<table class="table">
+		  <thead>
+		    <tr>
+		      <th>Sugar Level</th>
+		      <th>Date</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <% @month_to_date.each do |report| %>
+		      <tr>
+		        <td><%= report.blood_level %> mg/dl</td>
+		        <td><%= report.created_at.strftime("%d %B %Y") %></td>
+		      </tr>
+		    <%end%>
+		  </tbody>
+		</table>
 	<% end %>
 </div>
-<% if params[:from] && params[:to]%>
-	<table class="table">
-	  <thead>
-	    <tr>
-	      <th>Sugar Level</th>
-	      <th>Date</th>
-	    </tr>
-	  </thead>
-	  <tbody>
-	    <% @month_to_date.each do |report| %>
-	      <tr>
-	        <td><%= report.blood_level %> mg/dl</td>
-	        <td><%= report.created_at.strftime("%d %B %Y") %></td>
-	      </tr>
-	    <%end%>
-	  </tbody>
-	</table>
-<% end %>
 
 
 

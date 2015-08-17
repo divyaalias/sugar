@@ -1,24 +1,21 @@
-<div class="col-md-9">
-  <div class="thumbnail glucose-img">
-    <img src="../../assets/blood_glucose.jpg" class="img-responsive" alt="Responsive image"/>
-    <div class="caption-full">
-      <h4><a href="#">Blood Glucose Chart</a></h4>
-      <table class="table">
-        <thead>
-          <tr>
-            <th>Sugar Level</th>
-            <th>Date</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @diabetics.each do |diabetic| %>
-            <tr>
-              <td><%= diabetic.blood_level %> mg/dl</td>
-              <td>Today at <%= diabetic.created_at.strftime("%I:%M %P") %></td>
-            </tr>
-          <%end%>
-        </tbody>
-      </table>
-    </div>
-  </div>
+<img src="../../assets/blood_glucose.jpg" class="img-responsive" alt="Responsive image"/>
+<div class="caption-full">
+  <h4><a href="#">Blood Glucose Chart</a></h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Sugar Level</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @diabetics.each do |diabetic| %>
+        <tr>
+          <td><%= diabetic.blood_level %> mg/dl</td>
+          <td>Today at <%= diabetic.created_at.strftime("%I:%M %P") %></td>
+        </tr>
+      <%end%>
+    </tbody>
+  </table>
 </div>
+ 
