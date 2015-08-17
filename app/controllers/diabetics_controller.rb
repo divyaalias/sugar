@@ -23,8 +23,10 @@ class DiabeticsController < ApplicationController
 	end
 
 	def month_to_date
-		@month_to_date = Diabetic.where("created_at between (?) and (?)", params[:from], params[:to])
-		#debugger
+		@month_to_date = Diabetic.filter_range(params[:from], params[:to])
+		respond_to do |format|
+			format.html { render "month_to_date" }
+		end
 	end
 	
 	 def monthly_report
@@ -37,8 +39,8 @@ class DiabeticsController < ApplicationController
     params.require(:diabetic).permit(:blood_level,:user_id)
   end
 
-  def month_report
- # 	params.require(:diabetic).permit(:created_at => :from, :updated_at => :to)
-  end
+  # def month_report
+  # 	params.require(:diabetic).permit(:from, :to)
+  # end
 
 end

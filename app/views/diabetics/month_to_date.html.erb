@@ -1,29 +1,50 @@
- <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-<link rel="stylesheet" href="/resources/demos/style.css">
 <div class="test-sugar">
-<%= form_tag month_to_date_diabetics_path, :method => "get" do  %>
-	<div class="form-group">
-		<label> From</label>
-		<%= text_field_tag :from %>
-		<label> To</label>
-		<%= text_field_tag :to %>
-	</div>
-	<div class="month-submit">
-		<%= submit_tag "Search", :class => "btn btn-primary btn-sm" %>
-	</div>
-<% end %>
+	<%= form_tag month_to_date_diabetics_path, :method => "get" do  %>
+		<div class="form-group">
+			<label> From</label>
+				<%= text_field_tag :from, params[:from] %>
+			<label> To</label>
+				<%= text_field_tag :to, params[:to] %>
+		</div>
+		<div class="month-submit">
+			<%= submit_tag "Search", :class => "btn btn-primary btn-sm" %>
+		</div>
+	<% end %>
 </div>
-<%# @month_to_date.each do |report|%>
-<%# @diabetics.each do |diabetic| %>
-<%#= report.blood_level%>
-<%#end%>
+<% if params[:from] && params[:to]%>
+	<table class="table">
+	  <thead>
+	    <tr>
+	      <th>Sugar Level</th>
+	      <th>Date</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <% @month_to_date.each do |report| %>
+	      <tr>
+	        <td><%= report.blood_level %> mg/dl</td>
+	        <td><%= report.created_at.strftime("%d %B %Y") %></td>
+	      </tr>
+	    <%end%>
+	  </tbody>
+	</table>
+<% end %>
+
 
 
 <script type="text/javascript">
 $(document).ready(function () {
-	$("#from").datepicker();
-	$("#to").datepicker();
+	$("#from").datepicker({
+                    changeMonth: true,
+                    changeYear: true,
+                    showButtonPanel: true,
+                    dateFormat: 'yy-mm-dd'
+                });
+	$("#to").datepicker({
+                    changeMonth: true,
+                    changeYear: true,
+                    showButtonPanel: true,
+                    dateFormat: 'yy-mm-dd'
+                });
 });
 </script>
