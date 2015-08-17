@@ -6,15 +6,21 @@ Rails.application.routes.draw do
      get '/users/sign_out', :to => 'devise/sessions#destroy'
     #root to: "devise/sessions#new"
   end
-  resources :diabetics  do
-    post :month_to_date
+  root 'diabetics#index'
+  
+  resources :diabetics do
+    collection do 
+      get 'monthly_report'
+      get 'month_to_date'
+    end
   end
+    
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   #sroot to: "home#index"
   # You can have the root of your site routed with "root"
-   root 'diabetics#index'
+   
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

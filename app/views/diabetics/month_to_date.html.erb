@@ -1,0 +1,29 @@
+ <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<link rel="stylesheet" href="/resources/demos/style.css">
+<div class="test-sugar">
+<%= form_tag month_to_date_diabetics_path, :method => "get" do  %>
+	<div class="form-group">
+		<label> From</label>
+		<%= text_field_tag :from %>
+		<label> To</label>
+		<%= text_field_tag :to %>
+	</div>
+	<div class="month-submit">
+		<%= submit_tag "Search", :class => "btn btn-primary btn-sm" %>
+	</div>
+<% end %>
+</div>
+<%# @month_to_date.each do |report|%>
+<%# @diabetics.each do |diabetic| %>
+<%#= report.blood_level%>
+<%#end%>
+
+
+<script type="text/javascript">
+$(document).ready(function () {
+	$("#from").datepicker();
+	$("#to").datepicker();
+});
+</script>

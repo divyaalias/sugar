@@ -9,6 +9,7 @@ class DiabeticsController < ApplicationController
 	end
 
 	def create
+		#debugger
 		@diabetic = Diabetic.new(user_params)
     	respond_to do |format|
       if @diabetic.save
@@ -22,13 +23,22 @@ class DiabeticsController < ApplicationController
 	end
 
 	def month_to_date
-		#@month_to_date = Diabetic.where(:created_at => params[:from] &&  )
+		@month_to_date = Diabetic.where("created_at between (?) and (?)", params[:from], params[:to])
+		#debugger
 	end
+	
+	 def monthly_report
+		#@month_to_date = Diabetic.where(:created_at => :from &&  :updated_at => :to)
+	 end
 
 	private
 
 	def user_params
     params.require(:diabetic).permit(:blood_level,:user_id)
+  end
+
+  def month_report
+ # 	params.require(:diabetic).permit(:created_at => :from, :updated_at => :to)
   end
 
 end
