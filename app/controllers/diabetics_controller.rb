@@ -2,6 +2,10 @@ class DiabeticsController < ApplicationController
 
 	def index
 		@diabetics = Diabetic.where("user_id = :user_id and Date(created_at) = :date", { user_id: current_user.id, date: Date.today })
+		respond_to do |format|
+			format.html { render "index" }
+			format.xlsx { render xlsx: "diabetics", filename: "diabetics.xlsx" }
+		end
 		#@diabetics = Diabetic.where("created_at >= ?", Date.today)
 	end
 

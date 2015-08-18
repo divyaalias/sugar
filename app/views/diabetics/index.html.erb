@@ -1,5 +1,6 @@
 <img src="../../assets/blood_glucose.jpg" class="img-responsive" alt="Responsive image"/>
 <div class="caption-full">
+  <%= link_to 'Report', diabetics_path(params.merge(format: "xlsx")), :class =>"btn btn-info btn-sm buton-right" %>
   <h4><a href="#">Blood Glucose Chart</a></h4>
   <table class="table">
     <thead>

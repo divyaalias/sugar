@@ -19,6 +19,9 @@
 .error.msg {
     margin-left: -37px;
 }
+.buton-right {
+    float: right;
+}
 
 .month-submit {
     padding-bottom: 4%;

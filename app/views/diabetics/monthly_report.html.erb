@@ -1,5 +1,5 @@
-<%= link_to 'Report', monthly_report_diabetics_path(params.merge(format: "xlsx")), :class =>"btn btn-info btn-sm" %>
 <div class="caption-full">
+	<%= link_to 'Report', monthly_report_diabetics_path(params.merge(format: "xlsx")), :class =>"btn btn-info btn-sm buton-right" %>
 	<table class="table">
 		<% @monthly_report.keys.sort.reverse.each do |month| %>
 		  <thead>

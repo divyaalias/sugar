@@ -7,10 +7,10 @@ if params[:from] && params[:to]
        "Blood Level in mg/dl",
        "Date"
       ], style: bold
-    @month_to_date.each do |button|
+    @month_to_date.each do |report|
       sheet.add_row [
-        button.blood_level, 
-        button.created_at
+        report.blood_level, 
+        report.created_at
       ]
     end
   end
