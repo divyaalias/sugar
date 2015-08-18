@@ -2,14 +2,13 @@
 <html>
 	<head>
   	<title>Blood Glucose Level</title>
-  	<%= stylesheet_link_tag    'application', 'thickbox', media: 'all', 'data-turbolinks-track' => true %>
-  	<%= javascript_include_tag 'application','jquery-1.3.2.min', 'jquery.validate.min', 'bootstrap.min.css', 'shop-item.css', 'data-turbolinks-track' => true %>
-  	<%= csrf_meta_tags %>
+  	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-		<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-		<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-		<link rel="stylesheet" href="/resources/demos/style.css">
+  	<%= stylesheet_link_tag    'application', 'thickbox', media: 'all', 'data-turbolinks-track' => true %>
+  	<%= javascript_include_tag 'application','jquery-1.3.2.min', 'jquery.validate.min', 'data-turbolinks-track' => true %>
+  	<%= csrf_meta_tags %>
+  	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+	
 	</head>
 	<body>
 	<%# if current_user %>

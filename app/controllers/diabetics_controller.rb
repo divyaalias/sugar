@@ -18,6 +18,7 @@ class DiabeticsController < ApplicationController
       #  format.json { render :show, status: :created, location: @diabetic }
       else
         format.html { render :new }
+        flash[:error] = "fsdgffdhg"
         format.json { render json: @diabetic.errors, status: :unprocessable_entity }
       end
     end
@@ -27,11 +28,17 @@ class DiabeticsController < ApplicationController
 		@month_to_date = Diabetic.filter_range(params[:from], params[:to])
 		respond_to do |format|
 			format.html { render "month_to_date" }
+			format.xlsx { render xlsx: "month_to_date", filename: "month_to_date.xlsx" }
 		end
 	end
 	
 	 def monthly_report
-		#@month_to_date = Diabetic.where(:created_at => :from &&  :updated_at => :to)
+	 	@diabetics = Diabetic.all
+  	@monthly_report = @diabetics.group_by { |t| t.created_at.beginning_of_month }
+  	respond_to do |format|
+			format.html { render "monthly_report" }
+			format.xlsx { render xlsx: "monthly_report", filename: "monthly_report.xlsx" }
+		end
 	 end
 
 	private

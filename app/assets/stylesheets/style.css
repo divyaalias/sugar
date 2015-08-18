@@ -16,6 +16,10 @@
     color: rgb(255, 0, 0);
     font-weight: normal;
 }
+.error.msg {
+    margin-left: -37px;
+}
+
 .month-submit {
     padding-bottom: 4%;
     padding-left: 5%;
