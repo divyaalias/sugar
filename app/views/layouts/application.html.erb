@@ -32,6 +32,10 @@
 	      		<%= link_to 'Track Blood Glucose', new_diabetic_path %>
 	      	</li>
 	      	<li>
+	      	<li>
+	      		<a><%= current_user.email%></a>
+	      	<li>
+	      	<li>
 	          <%= link_to "Log out", destroy_user_session_path%>
 	      	</li>
 	      </ul>
