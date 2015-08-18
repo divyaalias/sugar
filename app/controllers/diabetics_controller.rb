@@ -1,7 +1,8 @@
 class DiabeticsController < ApplicationController
 
 	def index
-		@diabetics = Diabetic.where(user_id: current_user.id)
+		@diabetics = Diabetic.where("user_id = :user_id and Date(created_at) = :date", { user_id: current_user.id, date: Date.today })
+		#@diabetics = Diabetic.where("created_at >= ?", Date.today)
 	end
 
 	def new
